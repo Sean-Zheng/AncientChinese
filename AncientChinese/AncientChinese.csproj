@@ -861,6 +861,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\SqlOperater\DbOperater.cs" />
+    <Compile Include="Models\SqlOperater\FileOperater.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
