@@ -22,6 +22,8 @@
             "Title": "七发（简体）",//字帖名
             "BookType": "古文"//字帖类型
         }
+        
+        
     {url}/api/copybook/copybook/{id}
     参数说明：
         id：字帖的id
