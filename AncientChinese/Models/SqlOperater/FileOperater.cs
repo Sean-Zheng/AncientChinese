@@ -19,6 +19,7 @@ namespace AncientChinese.Models.SqlOperater
                 SqlDataReader reader = GetSqlDataReader(command);
                 if (reader.Read())
                     path = reader.GetString(0);
+                reader.Close();
                 CloseConnection();
                 return path;
             }
