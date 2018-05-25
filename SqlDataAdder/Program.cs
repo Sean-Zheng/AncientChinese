@@ -12,14 +12,9 @@ namespace SqlDataAdder
     {
         static void Main(string[] args)
         {
-            DirectoryInfo directory = new DirectoryInfo(@"C:\Users\NULL\Desktop\书生文\元曲");
-            FileInfo[] files = directory.GetFiles();
-            List<string> fileNames = new List<string>();
-            foreach (var item in files)
-                fileNames.Add(item.Name);
-            CopybookOperater operater = new CopybookOperater();
-            operater.AddCopyBook(fileNames.ToArray(),3);
-
+            DirectoryInfo directory = new DirectoryInfo(@"C:\Users\NULL\Desktop\书生文\晋代名家书法");
+            AppreciateOpertaer opertaer = new AppreciateOpertaer();
+            opertaer.Add2(directory);
         }
     }
 }
