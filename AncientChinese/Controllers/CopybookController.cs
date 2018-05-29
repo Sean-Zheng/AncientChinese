@@ -16,7 +16,7 @@ namespace AncientChinese.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IHttpActionResult CopyBookList()
+        public IHttpActionResult List()
         {
             CopybookOperater operater = new CopybookOperater();
             IEnumerable<Copybook> copybooks = operater.GetCopybooks();
@@ -28,7 +28,7 @@ namespace AncientChinese.Controllers
         /// <param name="id">字帖id</param>
         /// <returns></returns>
         [HttpGet]
-        public IHttpActionResult CopyBook(string id)
+        public IHttpActionResult Detail(string id)
         {
             CopybookOperater operater = new CopybookOperater();
             IEnumerable<Guid> copybook = operater.GetCopybook(id);
