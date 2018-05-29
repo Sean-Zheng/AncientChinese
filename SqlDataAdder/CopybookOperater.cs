@@ -18,6 +18,51 @@ namespace SqlDataAdder
         {
             _dataSet = new DataSet();
         }
+        public void GetTable()
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT Id,Title,FontType FROM Tb_CopyBook", _connection);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            List<Title> titles = new List<Title>();
+
+            foreach (DataRow item in table.Rows)
+            {
+                Title title = new Title
+                {
+                    T = item.Field<string>(1)
+                };
+                titles.Add(title);
+            }
+            Regex regex = new Regex(@"(.*?)（(.*?)）");
+
+            for (int i = 0; i < titles.Count; i++)
+            {
+                Match match = regex.Match(titles[i].T);
+                titles[i].Tit = match.Groups[1].Value;
+                titles[i].type = match.Groups[2].Value;
+            }
+
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                DataRow row = table.Rows[i];
+                row[1] = titles[i].Tit;
+                row[2] = titles[i].type;
+            }
+
+            foreach (DataRow item in table.Rows)
+            {
+
+                Console.WriteLine(item.Field<string>(1));
+                Console.WriteLine(item.Field<string>(2));
+                Console.WriteLine();
+            }
+
+
+            new SqlCommandBuilder(adapter);
+            adapter.Update(table);
+        }
+
+
 
         public void AddCopyBook(string[] fileNames,int type)
         {
@@ -106,5 +151,11 @@ namespace SqlDataAdder
             
         }
         
+    }
+    class Title
+    {
+        public string T { get; set; }
+        public string Tit { get; set; }
+        public string type { get; set; }
     }
 }
