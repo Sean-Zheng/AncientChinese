@@ -57,46 +57,45 @@
     结果说明：
         文件的id
 ### 名家欣赏相关接口
-    111.230.253.18/api/appreciate/list
+    111.230.253.18/api/appreciate/authorslist
+    作用:获取作者列表
     方法:get
     参数说明：
         无
     结果类型：
         数组
-    结果说明：
-        {
-            "ID": "444811bb-84b7-4ae5-91df-0f5b905f887d",
-            "Title": "鸭头丸帖",
-            "Times": "晋",
-            "Author": "王献之"
-        }
-    111.230.253.18/api/appreciate/list
-    方法:get
-    参数说明：
-        无
-    结果类型：
-        数组
-    结果说明：
-        {
-            "ID": "444811bb-84b7-4ae5-91df-0f5b905f887d",
-            "Title": "鸭头丸帖",
-            "Times": "晋",
-            "Author": "王献之"
-        }
         
-    111.230.253.18/api/appreciate/list
+    111.230.253.18/api/appreciate/timeslist
+    作用:获取朝代列表
     方法:get
     参数说明：
         无
     结果类型：
         数组
-    结果说明：
-        {
-            "ID": "444811bb-84b7-4ae5-91df-0f5b905f887d",
-            "Title": "鸭头丸帖",
-            "Times": "晋",
-            "Author": "王献之"
-        }
+        
+    111.230.253.18/api/appreciate/authors?authors={authorName}
+    作用:获取该作者的作品
+    方法:get
+    参数说明：
+        authorName:作者姓名
+    结果类型：
+        数组
+        
+    111.230.253.18/api/appreciate/times?times={times}
+    作用:获取该朝代的作品
+    方法:get
+    参数说明：
+        times:朝代名
+    结果类型：
+        数组
+    
+    111.230.253.18/api/appreciate/list
+    作用:获取所有作品
+    方法:get
+    参数说明：
+        无
+    结果类型：
+        数组
     
     111.230.253.18/api/appreciate/detail/{id}
     方法:get
