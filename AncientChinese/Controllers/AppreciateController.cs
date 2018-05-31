@@ -11,6 +11,34 @@ namespace AncientChinese.Controllers
     public class AppreciateController : ApiController
     {
         [HttpGet]
+        public IHttpActionResult AuthorsList()
+        {
+            AppreciateOperater operater = new AppreciateOperater();
+            var list = operater.GetAuthors();
+            return Json(list);
+        }
+        [HttpGet]
+        public IHttpActionResult TimesList()
+        {
+            AppreciateOperater operater = new AppreciateOperater();
+            var list = operater.GetTimesList();
+            return Json(list);
+        }
+        [HttpGet]
+        public IHttpActionResult Authors(string authors)
+        {
+            AppreciateOperater operater = new AppreciateOperater();
+            var list = operater.Authors(authors);
+            return Json(list);
+        }
+        [HttpGet]
+        public IHttpActionResult Times(string times)
+        {
+            AppreciateOperater operater = new AppreciateOperater();
+            var list = operater.Times(times);
+            return Json(list);
+        }
+        [HttpGet]
         public IHttpActionResult List()
         {
             AppreciateOperater operater = new AppreciateOperater();

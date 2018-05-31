@@ -13,5 +13,8 @@ namespace AncientChinese.Models
         public Guid Id { get; set; }
         public string Title { get; set; }
         public string BookType { get; set; }
+        public string Author { get; set; }
+        public string FontType { get; set; }
+        public string Content { get; set; }
     }
 }

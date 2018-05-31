@@ -151,6 +151,27 @@ namespace SqlDataAdder
             
         }
         
+
+
+        public void AddContent(IEnumerable<Book>books)
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Tb_CopyBook", _connection);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+
+            foreach (var item in books)
+            {
+                DataRow[] rows = table.Select($"Title='{item.Title}'");
+                for (int i = 0; i < rows.Length; i++)
+                {
+                    rows[i][3] = item.Author;
+                    rows[i][5] = item.Content;
+                }
+            }
+            new SqlCommandBuilder(adapter);
+            adapter.Update(table);
+        }
+
     }
     class Title
     {

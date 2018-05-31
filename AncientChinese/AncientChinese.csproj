@@ -895,6 +895,7 @@
     </Compile>
     <Compile Include="Models\Appreciate.cs" />
     <Compile Include="Models\Copybook.cs" />
+    <Compile Include="Models\CopybookType.cs" />
     <Compile Include="Models\SqlOperater\AppreciateOperater.cs" />
     <Compile Include="Models\SqlOperater\CopybookOperater.cs" />
     <Compile Include="Models\SqlOperater\DbOperater.cs" />
