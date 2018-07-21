@@ -8,6 +8,9 @@ using System.Web.Http;
 
 namespace AncientChinese.Controllers
 {
+    /// <summary>
+    /// 名家鉴赏
+    /// </summary>
     public class AppreciateController : ApiController
     {
         [HttpGet]
