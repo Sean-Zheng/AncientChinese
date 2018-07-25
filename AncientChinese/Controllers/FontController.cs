@@ -1,4 +1,5 @@
-﻿using AncientChinese.Models.SqlOperater;
+﻿using AncientChinese.Models;
+using AncientChinese.Models.SqlOperater;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,23 @@ namespace AncientChinese.Controllers
         {
             FontOperater operater = new FontOperater();
             var fonts = operater.GetFonts(typeId);
-            return Json(fonts);
+            return Json(fonts, new Newtonsoft.Json.JsonSerializerSettings { NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore });
+        }
+        [HttpGet]
+        public IHttpActionResult FontDetail(string type)
+        {
+            FontOperater operater = new FontOperater();
+            FontType[] types = operater.GetFontTypes().ToArray();
+            FontType font = (from item in types where item.TypeName == type select item).FirstOrDefault();
+            var fonts = operater.GetFonts(font.TypeId);
+            return Json(fonts, new Newtonsoft.Json.JsonSerializerSettings { NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore });
+        }
+        [HttpGet]
+        public IHttpActionResult Word(string search)
+        {
+            FontOperater operater = new FontOperater();
+            var fonts = operater.GetFonts(search);
+            return Json(fonts, new Newtonsoft.Json.JsonSerializerSettings { NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore });
         }
     }
 }
